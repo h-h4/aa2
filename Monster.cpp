@@ -1,7 +1,7 @@
 #include "Monster.h"
 #include "Player.h"
 #include <iostream>
-
+#include <windows.h>
 Monster::Monster(std::string name) {
 	this->name = name;
 	HP = 100;
@@ -42,20 +42,22 @@ void Monster::setSpeed(int speed) {
 	this->speed = speed;
 }
 
-void Monster::attack(Player* player) {
+bool Monster::attack(Player* player) {
 	int damage = getPower() - player->getDefence();
 	if (damage <= 0) {
 		damage = 1;
 	}
-	std::cout << "몬스터 " << name << "(이)가 플레이어 " << player->getNickname() << " 에게 피해를 " << damage << " 만큼 주었습니다!" << std::endl;
+	std::cout << name << " 이 " << player->getNickname() << " 에게 피해를 " << damage << " 만큼 주었습니다!" << std::endl;
 
 	player->setHP(player->getHP() - damage);
-
+	Sleep(250);
 	if (player->getHP() > 0) {
 		std::cout << "현재 체력은 : " << player->getHP() << " 만큼 남았습니다!" << std::endl;
 	}
 	else
 	{
-		std::cout << "플레이어 " << player->getNickname() << " 은" << "몬스터 " << name << " 에게 패배하였습니다!" << std::endl;
+		std::cout << "플레이어 " << player->getNickname() << " 은 " << name << " 에게 패배하였습니다!" << std::endl;
+		return true;
 	}
+	return false;
 }

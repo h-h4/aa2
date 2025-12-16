@@ -7,7 +7,6 @@ class Player {
 public:
     Player(std::string nickname);
 
-    virtual bool attack() = 0;
     virtual bool attack(Monster* monster) = 0;
     void printPlayerStatus();
 

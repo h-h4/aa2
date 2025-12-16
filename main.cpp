@@ -5,6 +5,8 @@
 #include "thief.h"
 #include "archer.h"
 #include "Monster.h"
+#include <Windows.h>
+
 using namespace std;
 
 void displayMenu() {
@@ -69,14 +71,27 @@ int main() {
         case 1:
             if (monster == nullptr) {
                 cout << "* 현재 공격할 몬스터가 없습니다. 새로운 몬스터를 생성해야 합니다!" << endl;
-                break;
             }
-            else
-            {
-             player->attack();
-             player->attack(monster);
+            else {
+                bool isMonsterKilled = player->attack(monster);
+
+                if (isMonsterKilled) {
+                    delete monster;
+                    monster = nullptr;
+                    cout << "경험치를 획득했습니다!" << endl;
+                }
+                else {
+                    Sleep(1000);
+                    cout << "\n--- 몬스터의 턴 ---" << endl;
+                    cout << monster->getName() << "이(가) " << nickname << "을(를) 공격합니다!" << endl;
+                    monster->attack(player);
+                    if (player->getHP() <= 0) {
+                        cout << nickname << "이(가) 쓰러졌습니다... 게임 오버." << endl;
+                        choice = 0;
+                    }
+                }
+            }
              break;
-            }
         case 2:
             player->printPlayerStatus();
             break;
@@ -104,8 +119,12 @@ int main() {
         }
     } while (choice != 0);
 
-    if (player != nullptr)
+    if (player != nullptr) {
         delete player;
+    }
 
+    if (monster != nullptr) {
+        delete monster;
+    }
     return 0;
 }

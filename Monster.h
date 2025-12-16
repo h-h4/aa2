@@ -17,7 +17,7 @@ public:
     // - 플레이어 객체의 getHP 함수를 실행하여 플레이어HP-데미지 계산 결과를
     // - 플레이어 객체의 setHP 매개변수로 전달합니다.
     // - 플레이어가 생존했을 경우, 플레이어의 남은 HP를 출력합니다.
-    void attack(Player* player);
+    bool attack(Player* player);
 
     // 몬스터의 속성값을 리턴하는 get 함수
     std::string getName();

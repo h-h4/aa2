@@ -1,6 +1,7 @@
 #include "Magician.h"
 #include "monster.h"
 #include <iostream>
+#include <windows.h>
 
 Magician::Magician(std::string Nickname) : Player(Nickname) {
 	Job_name = "마법사";
@@ -13,26 +14,23 @@ Magician::Magician(std::string Nickname) : Player(Nickname) {
 	Speed = 10;
 }
 
-bool Magician::attack() {
-	std::cout << "* 마법을 시전했습니다." << std::endl;
-	return false;
-}
-
 bool Magician::attack(Monster* monster) {
+	std::cout << monster->getName() << " 에게 마법을 시전했습니다.\n" << std::endl;
+	Sleep(500);
 	int damage = getPower() - monster->getDefence();
 	if (damage <= 0) {
 		damage = 1;
 	}
-	std::cout << "몬스터" << monster->getName() << "에게 피해를 " << damage << " 만큼 주었습니다!" << std::endl;
+	std::cout <<  monster->getName() << "에게 피해를 " << damage << " 만큼 주었습니다!" << std::endl;
 	monster->setHP(monster->getHP() - damage);
-
+	Sleep(250);
 	if (monster->getHP() <= 0) {
-		std::cout << "몬스터 " << monster->getName() << "(을)를 물리쳤다!" << std::endl;
+		std::cout << monster->getName() << "(을)를 물리쳤다!" << std::endl;
 		return true;
 	}
 	else
 	{
-		std::cout << "몬스터의 체력이 : " << monster->getHP() << " 만큼 남았습니다!" << std::endl;
+		std::cout << monster->getName() << "의 체력이 : " << monster->getHP() << " 만큼 남았습니다!" << std::endl;
 	}
 	return false;
 }
