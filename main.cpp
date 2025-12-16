@@ -70,12 +70,8 @@ int main() {
         switch (choice) {
         case 1:
             if (monster == nullptr) {
-<<<<<<< HEAD
-                cout << "* ÇöÀç °ø°ÝÇÒ ¸ó½ºÅÍ°¡ ¾ø½À´Ï´Ù. »õ·Î¿î ¸ó½ºÅÍ¸¦ »ý¼ºÇØ¾ß ÇÕ´Ï´Ù!" << endl;
-=======
                 cout << "* í˜„ìž¬ ê³µê²©í•  ëª¬ìŠ¤í„°ê°€ ì—†ìŠµë‹ˆë‹¤. ìƒˆë¡œìš´ ëª¬ìŠ¤í„°ë¥¼ ìƒì„±í•´ì•¼ í•©ë‹ˆë‹¤!" << endl;
                 break;
->>>>>>> f68342b029083d8559906a6e0dec1ce52565224d
             }
             else {
                 bool isMonsterKilled = player->attack(monster);
@@ -83,15 +79,15 @@ int main() {
                 if (isMonsterKilled) {
                     delete monster;
                     monster = nullptr;
-                    cout << "°æÇèÄ¡¸¦ È¹µæÇß½À´Ï´Ù!" << endl;
+                    cout << "ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ È¹ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½!" << endl;
                 }
                 else {
                     Sleep(1000);
-                    cout << "\n--- ¸ó½ºÅÍÀÇ ÅÏ ---" << endl;
-                    cout << monster->getName() << "ÀÌ(°¡) " << nickname << "À»(¸¦) °ø°ÝÇÕ´Ï´Ù!" << endl;
+                    cout << "\n--- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ---" << endl;
+                    cout << monster->getName() << "ï¿½ï¿½(ï¿½ï¿½) " << nickname << "ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½!" << endl;
                     monster->attack(player);
                     if (player->getHP() <= 0) {
-                        cout << nickname << "ÀÌ(°¡) ¾²·¯Á³½À´Ï´Ù... °ÔÀÓ ¿À¹ö." << endl;
+                        cout << nickname << "ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½... ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½." << endl;
                         choice = 0;
                     }
                 }
