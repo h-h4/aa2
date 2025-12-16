@@ -9,17 +9,17 @@ using namespace std;
 
 void displayMenu() {
     std::cout << "\n=============================================" << std::endl;
-    std::cout << "|             <½ºÅÈ °ü¸® ½Ã½ºÅÛ>            |" << std::endl;
+    std::cout << "|             <ì „íˆ¬ ê´€ë¦¬ ì‹œìŠ¤í…œ>            |" << std::endl;
     std::cout << "|===========================================|" << std::endl;
-    std::cout << "|  1. °ø°Ý            |  2. »óÅÂ È®ÀÎ       |" << std::endl;
-    std::cout << "|  3. ¸ó½ºÅÍ »ý¼º     |  0. Á¾·á            |" << std::endl;
+    std::cout << "|  1. ê³µê²©            |  2. ìƒíƒœ í™•ì¸       |" << std::endl;
+    std::cout << "|  3. ëª¬ìŠ¤í„° ìƒì„±     |  0. ì¢…ë£Œ            |" << std::endl;
     std::cout << "---------------------------------------------" << std::endl;
-    std::cout << "¸Þ´º ¼±ÅÃ (0-2) : ";
+    std::cout << "ë©”ë‰´ ì„ íƒ (0-2) : ";
 }
 
-// ¸ÞÀÎ ÇÔ¼ö
+// ë©”ì¸ í•¨ìˆ˜
 int main() {
-    string jobs[] = { "Àü»ç", "¸¶¹ý»ç", "µµÀû", "±Ã¼ö" };
+    string jobs[] = { "ì „ì‚¬", "ë§ˆë²•ì‚¬", "ë„ì ", "ê¶ìˆ˜" };
     int job_choice = 0;
     string nickname;
     int choice = -99;
@@ -27,18 +27,18 @@ int main() {
     Player* player = nullptr;
     Monster* monster = nullptr;
 
-    cout << "* ´Ð³×ÀÓÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+    cout << "* ë‹‰ë„¤ìž„ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”: ";
     cin >> nickname;
 
-    cout << "\n<ÀüÁ÷ ½Ã½ºÅÛ>" << endl;
-    cout << nickname << "´Ô, È¯¿µÇÕ´Ï´Ù!\n" << endl;
-    cout << "* ¿øÇÏ½Ã´Â Á÷¾÷À» ¼±ÅÃÇØÁÖ¼¼¿ä.\n" << endl;
+    cout << "\n<ì „ì§ ì‹œìŠ¤í…œ>" << endl;
+    cout << nickname << "ë‹˜, í™˜ì˜í•©ë‹ˆë‹¤!\n" << endl;
+    cout << "* ì›í•˜ì‹œëŠ” ì§ì—…ì„ ì„ íƒí•´ì£¼ì„¸ìš”.\n" << endl;
 
     for (int i = 0; i < 4; i++) {
         cout << (i + 1) << ". " << jobs[i] << endl;
     }
 
-    cout << "¼±ÅÃ: ";
+    cout << "ì„ íƒ: ";
     cin >> job_choice;
 
     switch (job_choice) {
@@ -55,7 +55,7 @@ int main() {
         player = new Archer(nickname);
         break;
     default:
-        cout << "Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù." << endl;
+        cout << "ìž˜ëª»ëœ ìž…ë ¥ìž…ë‹ˆë‹¤." << endl;
         return 1;
     }
 
@@ -68,7 +68,7 @@ int main() {
         switch (choice) {
         case 1:
             if (monster == nullptr) {
-                cout << "* ÇöÀç °ø°ÝÇÒ ¸ó½ºÅÍ°¡ ¾ø½À´Ï´Ù. »õ·Î¿î ¸ó½ºÅÍ¸¦ »ý¼ºÇØ¾ß ÇÕ´Ï´Ù!" << endl;
+                cout << "* í˜„ìž¬ ê³µê²©í•  ëª¬ìŠ¤í„°ê°€ ì—†ìŠµë‹ˆë‹¤. ìƒˆë¡œìš´ ëª¬ìŠ¤í„°ë¥¼ ìƒì„±í•´ì•¼ í•©ë‹ˆë‹¤!" << endl;
                 break;
             }
             else
@@ -82,24 +82,24 @@ int main() {
             break;
         case 3:
             if (monster == nullptr) {
-                monster = new Monster("½½¶óÀÓ");
-                cout << "* »õ·Î¿î ¸ó½ºÅÍ¸¦ »ý¼ºÇß½À´Ï´Ù!" << endl;
+                monster = new Monster("ìŠ¬ë¼ìž„");
+                cout << "* ìƒˆë¡œìš´ ëª¬ìŠ¤í„°ë¥¼ ìƒì„±í–ˆìŠµë‹ˆë‹¤!" << endl;
                 break;
             }
             else
             {
-                cout << "ÀÌ¹Ì ¸ó½ºÅÍ°¡ »ý¼ºµÇ¾î ÀÖ½À´Ï´Ù!" << endl;
+                cout << "ì´ë¯¸ ëª¬ìŠ¤í„°ê°€ ìƒì„±ë˜ì–´ ìžˆìŠµë‹ˆë‹¤!" << endl;
                 break;
             }
         case 0:
-            std::cout << "½Ã½ºÅÛÀ» Á¾·áÇÕ´Ï´Ù." << endl;
+            std::cout << "ì‹œìŠ¤í…œì„ ì¢…ë£Œí•©ë‹ˆë‹¤." << endl;
             break;
         default:
-            cout << "\n[°æ°í] ¸Þ´º ¹øÈ£´Â 0 ¿¡¼­ 2 »çÀÌ¿©¾ß ÇÕ´Ï´Ù.\n";
+            cout << "\n[ê²½ê³ ] ë©”ë‰´ ë²ˆí˜¸ëŠ” 0 ì—ì„œ 2 ì‚¬ì´ì—¬ì•¼ í•©ë‹ˆë‹¤.\n";
             break;
         }
         if (choice != 0) {
-            cout << "\n[¾Ë¸²] È®ÀÎÇÏ¼Ì´Ù¸é EnterÅ°¸¦ ´­·¯ÁÖ¼¼¿ä.";
+            cout << "\n[ì•Œë¦¼] í™•ì¸í•˜ì…¨ë‹¤ë©´ Enterí‚¤ë¥¼ ëˆŒëŸ¬ì£¼ì„¸ìš”.";
             cin.get();
         }
     } while (choice != 0);
